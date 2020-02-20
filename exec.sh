@@ -17,5 +17,5 @@ systemctl disable ufw apparmor
 systemctl stop ufw apparmor
 
 echo "@reboot /usr/sbin/ufw disable" > /root/cron
-echo "@reboot cd /root/checkmailapi && forever start app.js" >> /root/cron
+echo "@reboot cd /root/checkmailapi && forever start index.js" >> /root/cron
 crontab /root/cron
