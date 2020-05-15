@@ -128,7 +128,7 @@ module.exports = {
               return '{"status":"EXIST", "MX":"'+MXDomain+'"}';
             }
           } else {
-            return '{"status":"NOT_EXIST", "MX":"NULL"}';
+            return '{"status":"NOT_EXIST", "MX":"'+MXDomain+'"}';
           }
         }).finally(() => {
           netConn.end();
