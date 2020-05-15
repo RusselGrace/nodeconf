@@ -86,7 +86,7 @@ module.exports = {
           debug('\t' + resmsg[0]);
 
           if(resmsg[0].substr(0, 3) !== '250') {
-            throw new VerifyError('', 'VERIFY_FAIL');
+            throw new VerifyError('', '{"status":"VERIFY_FAIL", "MX":"'+MXDomain+'"}');
           }
 
           const writeMsg = `MAIL FROM: <${opts.from}>`;
@@ -98,7 +98,7 @@ module.exports = {
           debug('\t' + resmsg[0]);
 
           if(resmsg[0].substr(0, 3) !== '250') {
-            throw new VerifyError('', 'VERIFY_FAIL');
+            throw new VerifyError('', '{"status":"VERIFY_FAIL", "MX":"'+MXDomain+'"}');
           }
 
           const writeMsg = `RCPT TO: <${opts.to}>`;
@@ -156,7 +156,7 @@ module.exports = {
         }
 
         if(jobVerify.isPending()) {
-          return resolve('VERIFY_TIMEOUT');
+          return resolve('{"status":"VERIFY_TIMEOUT", "MX":"'+MXDomain+'"}');
         }
 
         return resolve('UNKNOWN');
