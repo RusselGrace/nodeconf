@@ -74,7 +74,7 @@ module.exports = {
           debug('\t' + resmsg[0]);
 
           if(resmsg[0].substr(0, 3) !== '220') {
-            throw new VerifyError('', 'VERIFY_FAIL');
+            throw new VerifyError('', '{"status":"VERIFY_FAIL", "MX":"'+MXDomain+'"}');
           }
 
           const writeMsg = 'HELO ' + opts.helo;
